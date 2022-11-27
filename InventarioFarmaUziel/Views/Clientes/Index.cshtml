@@ -1,0 +1,113 @@
+﻿@*@model IEnumerable<InventarioFarmaUziel.Models.Cliente>*@
+
+@model PaginatedList<InventarioFarmaUziel.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<h1>Clientes</h1>
+
+<p>
+    <a asp-action="Create">Añadir nuevo</a>
+</p>
+
+<form asp-controller="Clientes" asp-action="Index">
+    <p>
+        <span class="icon-input-btn">
+            Buscar Cliente: <input type="text" name="SearchString" />
+            <button type="submit" class="btn btn-success">
+                Buscar
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th align="center">
+                Id
+            </th>
+            <th align="center">
+                @Html.ActionLink("Primer Nombre", "Index", new { sortOrder = ViewBag.NameSortParm })
+            </th>
+            <th align="center">
+                Segundo Nombre
+            </th>
+            <th align="center">
+                @Html.ActionLink("Primer Apellido", "Index", new { sortOrder = ViewBag.NameSortParm })
+            </th>
+            <th align="center">
+                Segundo Apellido
+            </th>
+            <th align="center">
+                Direccion
+            </th>
+            <th align="center">
+                Telefono
+            </th>
+            <th align="center" class="text-center">Edición</th>
+            <th align="center" class="text-center">Información</th>
+            <th align="center" class="text-center">Remover</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pncliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sncliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pacliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sacliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DirC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelCliente)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdCliente">Editar</a>
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.IdCliente">Detalles</a>
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.IdCliente">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Anterior
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Siguiente
+</a>

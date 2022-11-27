@@ -1,0 +1,60 @@
+﻿@model InventarioFarmaUziel.Models.Medicamento
+
+@{
+    ViewData["Title"] = "Información";
+}
+
+<h1>Detalle del medicamento</h1>
+
+<div>
+@*    <h4>Medicamento</h4>
+    <hr />*@
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nombre Medicamento
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NombreMed)
+        </dd>
+        <dt class = "col-sm-2">
+            Elaboración
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaElab)
+        </dd>
+        <dt class = "col-sm-2">
+            Vencimiento
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaVenc)
+        </dd>
+        <dt class = "col-sm-2">
+            Descripción
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DescProd)
+        </dd>
+        <dt class = "col-sm-2">
+            Precio
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+        <dt class = "col-sm-2">
+            Cantidad
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+        <dt class = "col-sm-2">
+            Distribuidora
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Distribuidora)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdMedicamento">Editar</a> |
+    <a asp-action="Index">Volver a tabla</a>
+</div>

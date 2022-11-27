@@ -1,0 +1,57 @@
+﻿@model InventarioFarmaUziel.Models.Cliente
+
+@{
+    ViewData["Title"] = "Remover";
+}
+
+@*<h1>Eliminación del cliente</h1>*@
+
+<h2>¿Está seguro que desea eliminar este cliente?</h2>
+<div>
+@*    <h4>Cliente</h4>
+    <hr />*@
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Primer Nombre
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pncliente)
+        </dd>
+        <dt class = "col-sm-2">
+            Segundo Nombre
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sncliente)
+        </dd>
+        <dt class = "col-sm-2">
+            Primer Apellido
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pacliente)
+        </dd>
+        <dt class = "col-sm-2">
+            Segundo Apellido
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sacliente)
+        </dd>
+        <dt class = "col-sm-2">
+            Dirección
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DirC)
+        </dd>
+        <dt class = "col-sm-2">
+            Telefono
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TelCliente)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdCliente" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver a tabla</a>
+    </form>
+</div>

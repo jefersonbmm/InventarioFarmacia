@@ -1,0 +1,59 @@
+﻿@model InventarioFarmaUziel.Models.Cliente
+
+@{
+    ViewData["Title"] = "Edición";
+}
+
+<h1>Editar datos del cliente</h1>
+
+@*<h4>Cliente</h4>
+<hr />*@
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdCliente" />
+            <div class="form-group">
+                <label asp-for="Pncliente" class="control-label">Primer Nombre</label>
+                <input asp-for="Pncliente" class="form-control" />
+                <span asp-validation-for="Pncliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sncliente" class="control-label">Segundo Nombre</label>
+                <input asp-for="Sncliente" class="form-control" />
+                <span asp-validation-for="Sncliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pacliente" class="control-label">Primer Apellido</label>
+                <input asp-for="Pacliente" class="form-control" />
+                <span asp-validation-for="Pacliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sacliente" class="control-label">Segundo Apellido</label>
+                <input asp-for="Sacliente" class="form-control" />
+                <span asp-validation-for="Sacliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DirC" class="control-label">Dirección</label>
+                <input asp-for="DirC" class="form-control" />
+                <span asp-validation-for="DirC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TelCliente" class="control-label">Telefono</label>
+                <input asp-for="TelCliente" class="form-control" />
+                <span asp-validation-for="TelCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Actualizar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver a tabla</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
